@@ -22,9 +22,9 @@ Phân tích dữ liệu bán lẻ để tìm ra mối quan hệ giữa các sả
 - Tự động hóa pipeline bằng **Papermill**
 
 ---
-
+```markdown
 ## Project Structure
-
+```
 shopping_cart_analysis/
 ├── data/
 │ ├── raw/
@@ -49,7 +49,6 @@ shopping_cart_analysis/
 ├── run_papermill.py
 ├── requirements.txt
 └── README.md
-
 
 ---
 
