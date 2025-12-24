@@ -591,3 +591,31 @@ class DataVisualizer:
 
         plt.tight_layout()
         plt.show()
+# ===============================
+# FP-GROWTH RULES MINER (Lab 2)
+# ===============================
+
+from mlxtend.frequent_patterns import fpgrowth, association_rules
+
+class FPGrowthRulesMiner:
+    def __init__(self, basket_bool):
+        self.basket_bool = basket_bool
+        self.frequent_itemsets = None
+        self.rules = None
+
+    def mine_frequent_itemsets(self, min_support=0.02, max_len=None):
+        self.frequent_itemsets = fpgrowth(
+            self.basket_bool,
+            min_support=min_support,
+            use_colnames=True,
+            max_len=max_len
+        )
+        return self.frequent_itemsets
+
+    def generate_rules(self, metric="lift", min_threshold=1.0):
+        self.rules = association_rules(
+            self.frequent_itemsets,
+            metric=metric,
+            min_threshold=min_threshold
+        )
+        return self.rules
